@@ -90,6 +90,9 @@
     <Compile Include="UsersForm.Designer.cs">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AuthorForm.resx">
+      <DependentUpon>AuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
