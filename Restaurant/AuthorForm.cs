@@ -62,10 +62,7 @@ namespace Restaurant
         private void AuthorForm_Load(object sender, EventArgs e)
         {
             RoundPanel(panelCard);
-            MakeCircle(picAvatar);
-           // btnBack.Region = Region.FromHrgn(
-           //    CreateRoundRectRgn(0, 0, btnBack.Width, btnBack.Height, 20, 20)
-           //);
+            MakeCircle(picAvatar);        
         }
 
         private void separatorGradient_Paint(object sender, PaintEventArgs e)
