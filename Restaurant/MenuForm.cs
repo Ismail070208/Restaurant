@@ -12,9 +12,30 @@ namespace Restaurant
 {
     public partial class MenuForm : Form
     {
-        public MenuForm()
+        private string role;
+        public MenuForm(string userRole)
         {
             InitializeComponent();
+            role = userRole;
+        }
+
+        private void panelAdmin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+            if (role == "Admin")
+            {
+                panelAdmin.Visible = true;
+                panelWaiter.Visible = false;
+            }
+            else
+            {
+                panelAdmin.Visible = false;
+                panelWaiter.Visible = true;
+            }
         }
     }
 }

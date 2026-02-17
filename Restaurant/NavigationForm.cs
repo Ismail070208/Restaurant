@@ -15,6 +15,8 @@ namespace Restaurant
         private string userRole;
         private Button activeButton = null;
 
+
+
         public NavigationForm(string role)
         {
             InitializeComponent();
@@ -76,7 +78,7 @@ namespace Restaurant
         private void btnMenu_Click(object sender, EventArgs e)
         {
             SetActiveButton((Button)sender);
-            MenuForm form = new MenuForm();
+            MenuForm form = new MenuForm(userRole);
             form.ShowDialog();
         }
 
@@ -110,7 +112,7 @@ namespace Restaurant
 
         private void panelNavigation_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void NavigationForm_Load(object sender, EventArgs e)
@@ -123,12 +125,17 @@ namespace Restaurant
             btnStatistics.BackColor = Color.FromArgb(40, 40, 40);
             btnReports.BackColor = Color.FromArgb(40, 40, 40);
             btnUsers.BackColor = Color.FromArgb(40, 40, 40);
+
+            welcomePanel.Visible = true;
+            welcomePanel.BackColor = Color.FromArgb(0, 240, 240, 240); // светло сиво
+            welcomeTimer.Interval = 15;
+            welcomeTimer.Start();
             //panel1.BackColor = Color.FromArgb(245, 245, 245);
         }
 
         private void btnMenu_Enter(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnMenu_MouseEnter(object sender, EventArgs e)
@@ -145,6 +152,23 @@ namespace Restaurant
             SetActiveButton((Button)sender);
             StatisticsForm frm = new StatisticsForm();
             frm.ShowDialog();
+        }
+
+        int fadeValue = 0;
+        private void welcomeTimer_Tick(object sender, EventArgs e)
+        {
+            fadeValue += 8;
+
+            if (fadeValue >= 255)
+            {
+                fadeValue = 255;
+                welcomeTimer.Stop();
+            }
+
+            welcomePanel.BackColor = Color.FromArgb(
+                fadeValue,
+                240, 240, 240
+            );
         }
     }
 }

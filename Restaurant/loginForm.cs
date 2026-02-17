@@ -24,6 +24,7 @@ namespace Restaurant
     int nWidthEllipse,
     int nHeightEllipse
 );
+        
         public loginForm()
         {
             InitializeComponent();
